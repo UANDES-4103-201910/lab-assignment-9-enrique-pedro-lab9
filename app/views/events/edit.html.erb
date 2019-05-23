@@ -1,0 +1,8 @@
+<h3>Updtate Event</h3>
+<%= form_with model: @event do |form| %>
+  <%= form.text_field :name, placeholder: "name" %>
+  <%= form.text_field :description, placeholder: "description" %>
+  <%= form.text_field :start_date, placeholder: "start date" %>
+  <%= form.text_field :place_id, placeholder: "place id" %>
+  <%= form.submit %>
+<% end %>
