@@ -2,8 +2,12 @@
   <% @events.each do |event| %>
     <tr>
       <td><%= link_to event.name, event_path(event) %></td>
-      <td><%= button_to 'Edit', edit_event_path(event), method: 'get'%></td>
-      <td><%= button_to 'Remove', event_path(event), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+      <% if can? :manage, @event %>
+        <td><%= button_to 'Edit', edit_event_path(event), method: 'get'%></td>
+        <td><%= button_to 'Remove', event_path(event), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+      <%end%>
   <% end %>
 </table>
-<%= link_to "Add a New Event", new_event_path %>
+<% if can? :manage, @event %>
+    <%= link_to "Add a New Event", new_event_path %>
+<%end%>
