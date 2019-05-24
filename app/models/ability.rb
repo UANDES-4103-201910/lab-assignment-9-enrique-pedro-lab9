@@ -11,7 +11,7 @@ class Ability
         can :manage, :all
       end
     end
-    # Define abilities for the passed in user here. For example:
+    # Define abilities for the passed in userhere. For example:
     #
     #   user ||= User.new # guest user (not logged in)
     #   if user.admin?
