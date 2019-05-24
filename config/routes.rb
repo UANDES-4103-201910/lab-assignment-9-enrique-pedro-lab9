@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_tickets
   resources :events
   resources :ticket_types
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }

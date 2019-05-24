@@ -1,0 +1,9 @@
+<h3>Buy a Ticket</h3>
+    <%= form_with model: @user_ticket do |form| %>
+    <%= form.text_field :user_id, placeholder: "user_id" %>
+    <%= form.text_field :ticket_id, placeholder: "ticket id" %>
+    <%= form.text_field :time, placeholder: "time" %>
+    <%= form.text_field :paid, placeholder: "paid" %>
+    <%= form.submit %>
+    <%end%>
+

@@ -1,0 +1,9 @@
+<table>
+  <% @user_tickets.each do |user_ticket| %>
+    <tr>
+      <td><%= link_to user_ticket.user_id, event_path(user_ticket) %></td>
+      <td><%= button_to 'Edit', edit_event_path(user_ticket), method: 'get'%></td>
+      <td><%= button_to 'Remove', event_path(user_ticket), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</table>
+<%= link_to "Add a New User Ticket", new_user_ticket_path %>
