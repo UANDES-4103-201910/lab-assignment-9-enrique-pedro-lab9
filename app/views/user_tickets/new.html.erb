@@ -1,4 +1,5 @@
 <h3>Buy a Ticket</h3>
+<% if can? :manage, @user_ticket %>
     <%= form_with model: @user_ticket do |form| %>
     <%= form.text_field :user_id, placeholder: "user_id" %>
     <%= form.text_field :ticket_id, placeholder: "ticket id" %>
@@ -6,4 +7,6 @@
     <%= form.text_field :paid, placeholder: "paid" %>
     <%= form.submit %>
     <%end%>
-
+<%else%>
+ <h4> Access denied <h4>
+<% end %>

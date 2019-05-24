@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout proc { google_logged_in ? "glogged_in" : "application" }
   before_action :authenticate_user!
+  #load_and_authorize_resource
   
   
 
