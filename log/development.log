@@ -17088,3 +17088,293 @@ Completed 200 OK in 80ms (Views: 71.1ms | ActiveRecord: 0.8ms)
 Completed 200 OK in 104ms (Views: 95.5ms | ActiveRecord: 0.7ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/models/application_record.rb:1)
+Started GET "/events" for 127.0.0.1 at 2019-05-23 21:38:18 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/glogged_in (12.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 651ms (Views: 579.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/events/1/edit" for 127.0.0.1 at 2019-05-23 21:38:23 -0400
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/glogged_in
+  Rendered events/edit.html.erb within layouts/glogged_in (0.8ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events" for 127.0.0.1 at 2019-05-23 21:38:41 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/glogged_in (3.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 36ms (Views: 31.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events/3" for 127.0.0.1 at 2019-05-23 21:38:42 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  Rendered events/show.html.erb within layouts/glogged_in (1.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 40ms (Views: 32.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/events/2/edit" for 127.0.0.1 at 2019-05-23 21:38:46 -0400
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/glogged_in
+  Rendered events/edit.html.erb within layouts/glogged_in (0.8ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/2/edit" for 127.0.0.1 at 2019-05-23 21:38:50 -0400
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/glogged_in
+  Rendered events/edit.html.erb within layouts/glogged_in (0.8ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/2/edit" for 127.0.0.1 at 2019-05-23 21:38:51 -0400
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/glogged_in
+  Rendered events/edit.html.erb within layouts/glogged_in (0.7ms)
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/2/edit" for 127.0.0.1 at 2019-05-23 21:40:43 -0400
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/glogged_in
+  Rendered events/edit.html.erb within layouts/glogged_in (137.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 169ms (Views: 163.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events/2/edit" for 127.0.0.1 at 2019-05-23 21:41:11 -0400
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/glogged_in
+  Rendered events/edit.html.erb within layouts/glogged_in (1.0ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/2/edit" for 127.0.0.1 at 2019-05-23 21:41:19 -0400
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/glogged_in
+  Rendered events/edit.html.erb within layouts/glogged_in (1.1ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/2/edit" for 127.0.0.1 at 2019-05-23 21:43:00 -0400
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/glogged_in
+  Rendered events/edit.html.erb within layouts/glogged_in (0.7ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/2/edit" for 127.0.0.1 at 2019-05-23 21:44:02 -0400
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/glogged_in
+  Rendered events/edit.html.erb within layouts/glogged_in (12.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 42ms (Views: 37.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events/2/edit" for 127.0.0.1 at 2019-05-23 21:44:44 -0400
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/glogged_in
+  Rendered events/edit.html.erb within layouts/glogged_in (0.8ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/2/edit" for 127.0.0.1 at 2019-05-23 21:44:55 -0400
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/glogged_in
+  Rendered events/edit.html.erb within layouts/glogged_in (0.8ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/events/edit.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/events/edit.html.erb:15: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/2/edit" for 127.0.0.1 at 2019-05-23 21:45:07 -0400
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/glogged_in
+  Rendered events/edit.html.erb within layouts/glogged_in (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 26.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events/2/edit" for 127.0.0.1 at 2019-05-23 21:48:46 -0400
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/glogged_in
+  Rendered events/edit.html.erb within layouts/glogged_in (0.8ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:16: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/Users/Henry/Desktop/lab-assignment-9-enrique-pedro-lab9/app/views/events/edit.html.erb:18: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/events/edit.html.erb:16: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/events/edit.html.erb:18: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/2/edit" for 127.0.0.1 at 2019-05-23 21:49:17 -0400
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/glogged_in
+  Rendered events/edit.html.erb within layouts/glogged_in (1.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 27.3ms | ActiveRecord: 0.4ms)
+
+
