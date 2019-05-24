@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :current_user
   layout proc { google_logged_in ? "glogged_in" : "application" }
   before_action :authenticate_user!
   #load_and_authorize_resource
@@ -10,10 +11,10 @@ class ApplicationController < ActionController::Base
     render json: {session: session}
   end
 
-  def current_user
-	 @current_user ||= session[:current_user_id] && User.find_by_id(session[:current_user_id])
-
-  end
+  # def current_user
+	#  @current_user ||= session[:current_user_id] && User.find_by_id(session[:current_user_id])
+  #
+  # end
 
   def is_user_logged_in?
 	#complete this method
